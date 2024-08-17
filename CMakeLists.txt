@@ -8,7 +8,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(tictactoe_cpp main.cpp
     TicTacToeGame.hpp TicTacToeGame.cpp
     TicTacToeField.hpp TicTacToeField.cpp
-    InvalidMove.hpp InvalidMove.cpp)
+    InvalidMove.hpp InvalidMove.cpp
+    README.md)
 
 include(GNUInstallDirs)
 install(TARGETS tictactoe_cpp
