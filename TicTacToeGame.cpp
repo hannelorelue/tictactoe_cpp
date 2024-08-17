@@ -18,14 +18,13 @@ TicTacToeGame::TicTacToeGame(string player1, string player2){
     this->player2_ = player2;
 
     currentPlayer_ = 1;
-    cout << "TicTacToeGame" << endl;
 }
 
 string TicTacToeGame::getFieldString() {
     stringstream output;
 
-    output << "Player 1: " << player1_ << endl;
-    output << "Player 2: " << player2_ << endl;
+    // output << "Player 1: " << player1_ << endl;
+    // output << "Player 2: " << player2_ << endl;
 
     output << TicTacToeField::getFieldString();
     return output.str();
@@ -74,7 +73,7 @@ string TicTacToeGame::getWinner() {
     if(isFinished()) {
         int winner = calculateWinner();
         if (winner == 0) {
-            return "Unentschieden";
+            return "The match is a draw.";
         } else if (winner == 1){
             return  player1_;
         } else{

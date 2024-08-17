@@ -59,13 +59,16 @@ int TicTacToeField::calculateWinner() {
 
 string TicTacToeField::getFieldString() {
     stringstream output;
-
+    output << "    a   b   c  " << endl;
+    int k = 1;
     for (const auto &row : field) {
+        output << k;
         output << " | ";
         for (const auto &item : row) {
             output << item << " | ";
         }
         output << endl;
+        k++;
     }
     return output.str();
 }
