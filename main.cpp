@@ -46,22 +46,32 @@ int main(int argc, const char * argv[]) {
         cout << g.getFieldString() << endl;
         cout << g.getCurrentPlayer() << ", enter your move (column row): " << endl;
         int row, col;
-        int row_input = 0;
+        string row_string;
         string col_string;
 
-        cin >> col_string >> row_input;
+        cin >> col_string >> row_string;
 
-        row = row_input - 1;
+        // check input is correct
+        std::stringstream ss(row_string);
+        int number;
+        ss >> number;
+
+        if(!ss.fail()){
+            row = number - 1;
+        }
+        else {row = -1;}
 
         if (col_string == "a"){col = 0;}
         else if (col_string == "b"){col = 1;}
         else if (col_string == "c"){col = 2;}
+        else {col = -1;}
 
+        // play the game
         try {
             g.play(row, col);
         } catch (exception &e) {
             cout << "This move is invalid, please try again." << endl;
-            std::this_thread::sleep_for(std::chrono::seconds(2));
+            std::this_thread::sleep_for(std::chrono::seconds(1));
             std::cout << "\033[F\033[K";
         }
         delete_output_lines(7);
